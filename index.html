@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de Funil de Prospecção</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand-mark">FP</div>
+  <div><p class="eyebrow">PROSPECÇÃO</p><h1>Calculadora de funil</h1></div>
+  <button id="resetBtn" class="btn btn-ghost" type="button">Limpar dados</button>
+</header>
+<main class="container">
+  <section class="intro">
+    <div><p class="eyebrow">PAINEL DE PERFORMANCE</p><h2>Transforme contatos em resultados.</h2>
+    <p>Registre os números da sua prospecção e acompanhe as taxas de conversão em cada etapa do funil.</p></div>
+    <div class="period"><label for="period">Período analisado</label><input id="period" type="text" placeholder="Ex.: 1 a 31 de outubro"></div>
+  </section>
+
+  <section class="kpi-grid" aria-live="polite">
+    <article class="kpi"><span>Prospects abordados</span><strong id="kpiProspects">0</strong><small>Volume de prospecção</small></article>
+    <article class="kpi"><span>Taxa de resposta</span><strong id="kpiResponse">—</strong><small>Responderam ÷ abordados</small></article>
+    <article class="kpi"><span>Taxa de fechamento</span><strong id="kpiClose">—</strong><small>Clientes ÷ propostas</small></article>
+    <article class="kpi kpi-accent"><span>Conversão total</span><strong id="kpiOverall">—</strong><small>Clientes ÷ abordados</small></article>
+  </section>
+
+  <div class="section-heading"><div><p class="eyebrow">01 / DADOS DO FUNIL</p><h2>Preencha as etapas</h2></div><p class="muted">Insira os totais do mesmo período.</p></div>
+  <section class="panel">
+    <div class="field-grid">
+      <label class="field"><span>Novos prospects abordados</span><input id="prospects" type="number" min="0" step="1" value="100"><small>Empresas que receberam a primeira abordagem.</small></label>
+      <label class="field"><span>Responderam / interagiram</span><input id="responses" type="number" min="0" step="1" value="25"><small>Prospects que deram algum retorno.</small></label>
+      <label class="field"><span>Interessados qualificados</span><input id="qualified" type="number" min="0" step="1" value="10"><small>Possuem necessidade, perfil ou potencial.</small></label>
+      <label class="field"><span>Reuniões agendadas</span><input id="meetings" type="number" min="0" step="1" value="6"><small>Reuniões marcadas com o responsável.</small></label>
+      <label class="field"><span>Reuniões realizadas</span><input id="held" type="number" min="0" step="1" value="5"><small>Reuniões que realmente aconteceram.</small></label>
+      <label class="field"><span>Propostas enviadas</span><input id="proposals" type="number" min="0" step="1" value="3"><small>Propostas comerciais apresentadas.</small></label>
+      <label class="field"><span>Novos clientes fechados</span><input id="clients" type="number" min="0" step="1" value="1"><small>Contratos conquistados no período.</small></label>
+      <label class="field"><span>Ticket mensal médio (R$)</span><input id="ticket" type="number" min="0" step="50" value="1500"><small>Valor médio mensal por cliente.</small></label>
+    </div>
+    <div id="validation" class="validation" role="status"></div>
+  </section>
+
+  <div class="section-heading"><div><p class="eyebrow">02 / CONVERSÕES</p><h2>Onde o funil converte?</h2></div></div>
+  <section class="panel">
+    <div id="funnelRows" class="funnel-list"></div>
+  </section>
+
+  <div class="section-heading"><div><p class="eyebrow">03 / PROJEÇÃO</p><h2>Metas e estimativas</h2></div><p class="muted">Estimativas matemáticas com base nos dados informados.</p></div>
+  <section class="panel">
+    <div class="field-grid projection-grid">
+      <label class="field"><span>Novos prospects por dia</span><input id="daily" type="number" min="0" step="1" value="20"></label>
+      <label class="field"><span>Dias de prospecção por semana</span><input id="days" type="number" min="0" max="7" step="1" value="5"></label>
+      <label class="field"><span>Semanas projetadas</span><input id="weeks" type="number" min="1" step="1" value="4"></label>
+      <label class="field"><span>Conversão prospect → cliente (%)</span><input id="targetRate" type="number" min="0" step="0.1" value="1"></label>
+    </div>
+    <div class="projection-results">
+      <div><span>Prospects no período</span><strong id="projectProspects">400</strong></div>
+      <div><span>Clientes estimados</span><strong id="projectClients">4</strong></div>
+      <div><span>Receita mensal recorrente estimada</span><strong id="projectRevenue">R$ 6.000</strong></div>
+      <div><span>Prospects por venda (taxa atual)</span><strong id="perSale">100</strong></div>
+    </div>
+    <p class="note">A projeção não é garantia de resultado. O ciclo comercial pode ultrapassar o período escolhido e clientes estimados podem ser fracionários.</p>
+  </section>
+  <section class="actions"><button id="exportBtn" class="btn btn-primary" type="button">Exportar relatório CSV</button><button id="printBtn" class="btn btn-secondary" type="button">Imprimir / salvar PDF</button></section>
+  <footer>Calculadora local • Os dados são processados no seu navegador e não são enviados a um servidor.</footer>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
